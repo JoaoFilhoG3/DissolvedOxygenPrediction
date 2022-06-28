@@ -28,11 +28,7 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
   print(predictions.head()['Label'])
   
-
-
-st.json({
-
-    'fruit': realizar_predicao(
+valor = realizar_predicao(
             loaded_model,
             temp = 34.49,
             cond = 84.0,
@@ -42,7 +38,11 @@ st.json({
             turbid = -28.6,
             chl = -0.57,
             odo_sat = 100.7,
-            data_hora = "2020-11-21 12:21:00"
-        ),
+            data_hora = "2020-11-21 12:21:00"),
+
+st.json({
+
+    'fruit': valor
+        
 
 })
