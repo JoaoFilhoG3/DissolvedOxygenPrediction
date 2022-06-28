@@ -41,9 +41,5 @@ valor = realizar_predicao(
             data_hora = "2020-11-21 12:21:00")
 
 st.json({
-
-    'fruit': valor,
-    'oi':'oi'
-        
-
+    'predicao': valor
 })
