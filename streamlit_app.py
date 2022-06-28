@@ -13,7 +13,5 @@ class DissolvedOxygen(Resource):
 
 api.add_resource(DissolvedOxygen, "/do")
 
-print(__name__)
-
 if __name__ == '__main__':
     app.run()
