@@ -26,7 +26,7 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
   predictions = predict_model(loaded_model, data=unseen_data)
 
-  return predictions.head()['Label']
+  return predictions.head()['Label'][0]
   
 valor = realizar_predicao(
             loaded_model,
