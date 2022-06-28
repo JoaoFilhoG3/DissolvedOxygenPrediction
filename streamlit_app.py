@@ -38,11 +38,12 @@ valor = realizar_predicao(
             turbid = -28.6,
             chl = -0.57,
             odo_sat = 100.7,
-            data_hora = "2020-11-21 12:21:00"),
+            data_hora = "2020-11-21 12:21:00")
 
 st.json({
 
-    'fruit': valor
+    'fruit': valor,
+    'oi':'oi'
         
 
 })
