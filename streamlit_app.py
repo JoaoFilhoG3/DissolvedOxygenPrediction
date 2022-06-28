@@ -44,6 +44,5 @@ st.json({
             odo_sat = 100.7,
             data_hora = "2020-11-21 12:21:00"
         ),
-    'teste':'teste'
 
 })
