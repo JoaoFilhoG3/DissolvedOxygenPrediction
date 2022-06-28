@@ -3,7 +3,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
-api = api(app)
+api = Api(app)
 
 class DissolvedOxygen(Resource):
     def get(self):
