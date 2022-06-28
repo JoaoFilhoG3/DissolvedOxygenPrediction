@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
-loaded_model = load_model('my_model.pkl')
+loaded_model = load_model('my_model')
 
 def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo_sat, data_hora):
   data_hora = pd.to_datetime(data_hora)
