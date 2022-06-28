@@ -29,8 +29,7 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
   return predictions.head()['Label'][0]
   
 
-params = st.experimental_get_query_params()
-print(params) 
+
 valor = realizar_predicao(
             loaded_model,
             temp = 34.49,
@@ -46,3 +45,6 @@ valor = realizar_predicao(
 st.json({
     'predicao': float(valor)
 })
+
+params = st.experimental_get_query_params()
+print(params) 
