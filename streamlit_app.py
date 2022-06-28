@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
@@ -31,8 +32,7 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
 st.json({
 
-    'fruit':str(
-        realizar_predicao(
+    'fruit': realizar_predicao(
             loaded_model,
             temp = 34.49,
             cond = 84.0,
@@ -43,7 +43,6 @@ st.json({
             chl = -0.57,
             odo_sat = 100.7,
             data_hora = "2020-11-21 12:21:00"
-        )
-    ),
+        ),
 
 })
