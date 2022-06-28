@@ -1,17 +1,5 @@
 import streamlit as st
-from flask import Flask
-from flask_restful import Resource, Api
 
-app = Flask(__name__)
-api = Api(app)
+st.server.add_route("do", do_callback)
 
-class DissolvedOxygen(Resource):
-    def get(self):
-        return {
-            "teste": "teste"
-        }
-
-api.add_resource(DissolvedOxygen, "/do")
-
-if __name__ == '__main__':
-    app.run()
+if st.server.request.do == 
