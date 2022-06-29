@@ -45,8 +45,8 @@ ph = coluna1.number_input('Acidez', value= 0.0)
 turbid = coluna2.number_input('Turbidez', value= -28.6)
 chl = coluna1.number_input('Clorofila', value= -0.57)
 odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido', value= 100.7)
-data = coluna1.date_input('Data', value= "2020-11-21")
-hora = coluna2.time_input('Hora', value= "12:21:00")
+data = coluna1.date_input('Data', value= datetime.strptime("2020-11-21", "%Y-%m-%d"))
+hora = coluna2.time_input('Hora', value= datetime.strptime("12:21:00", "%H:%M:%S"))
 
 data_hora = data.strftime("%Y-%m-%d") + " " + hora.strftime("%H:%M:%S")
 
