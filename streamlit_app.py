@@ -44,7 +44,7 @@ from datetime import datetime
 params = st.experimental_get_query_params()
 
 st.json({
-    'predicao': params['oi']
+    'predicao': params['oi'][0]
 })
 
 
