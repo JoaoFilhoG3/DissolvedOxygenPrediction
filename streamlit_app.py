@@ -34,6 +34,7 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
   return predictions.head()['Label'][0]
 
+st.title("Predição de Oxigênio Dissolvido")
 
 coluna1, coluna2 = st.columns(2)
 
