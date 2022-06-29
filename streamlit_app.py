@@ -99,7 +99,7 @@ else:
             depth = depth,
             ph = ph,
             turbid = turbid,
-            chl = -chl,
+            chl = chl,
             odo_sat = odo_sat,
             data_hora = data_hora)
 
