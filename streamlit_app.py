@@ -26,20 +26,6 @@ from datetime import datetime
   #predictions = predict_model(loaded_model, data=unseen_data)
 #
   #return predictions.head()['Label'][0]
-  
-
-
-#valor = realizar_predicao(
-            #loaded_model,
-            #temp = 34.49,
-            #cond = 84.0,
-            #sal = 0.04,
-            #depth = 0.404,
-            #ph = 0.0,
-            #turbid = -28.6,
-            #chl = -0.57,
-            #odo_sat = 100.7,
-            #data_hora = "2020-11-21 12:21:00")
 
 params = st.experimental_get_query_params()
 
@@ -80,6 +66,36 @@ elif not ('data_hora' in params.keys()):
     'error': "Parâmetro 'data_hora' não informado!"
   })
 else:
+  temp = params['temp'][0]
+  cond = params['cond'][0]
+  sal = params['sal'][0]
+  depth = params['depth'][0]
+  ph = params['ph'][0]
+  turbid = params['turbid'][0]
+  chl = params['chl'][0]
+  odo_sat = params['odo_sat'][0]
+  data_hora = params['data_hora'][0]
+
+  valor = realizar_predicao(
+            loaded_model,
+            temp = temp,
+            cond = cond,
+            sal = sal,
+            depth = depth,
+            ph = ph,
+            turbid = turbid,
+            chl = -chl,
+            odo_sat = odo_sat,
+            data_hora = data_hora)
+
   st.json({
-    'predicao': 'deu certo'
+    'temp': temp,
+    'cond': cond,
+    'sal': sal,
+    'depth': depth,
+    'ph': ph,
+    'turbid': turbid,
+    'chl': chl,
+    'odo_sat': odo_sat,
+    'data_hora': data_hora
   })
