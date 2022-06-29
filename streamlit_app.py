@@ -43,11 +43,43 @@ from datetime import datetime
 
 params = st.experimental_get_query_params()
 
-if not ('oi' in params.keys()):
+if not ('temp' in params.keys()):
   st.json({
-    'error': "Parâmetros não informados!"
+    'error': "Parâmetro 'temp' não informado!"
+  })
+if not ('cond' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'cond' não informado!"
+  })
+if not ('sal' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'sal' não informado!"
+  })
+if not ('depth' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'depth' não informado!"
+  })
+if not ('ph' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'ph' não informado!"
+  })
+if not ('turbid' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'turbid' não informado!"
+  })
+if not ('chl' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'chl' não informado!"
+  })
+if not ('odo_sat' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'odo_sat' não informado!"
+  })
+if not ('data_hora' in params.keys()):
+  st.json({
+    'error': "Parâmetro 'data_hora' não informado!"
   })
 else:
   st.json({
-    'predicao': params['oi'][0]
+    'predicao': 'deu certo'
   })
