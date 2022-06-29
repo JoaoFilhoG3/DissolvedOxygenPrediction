@@ -45,7 +45,11 @@ ph = coluna1.number_input('Acidez')
 turbid = coluna2.number_input('Turbidez')
 chl = coluna1.number_input('Clorofila')
 odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
-data = coluna1.datetime_input('Data e hora')
+data = coluna1.date_input('Data')
+hora = coluna2.time_input('Hora')
+
+print("Aehooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" + data)
+print("Aehooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" + hora)
 
 if st.button('Calcular'):
     data_hora = data+" "+hora
@@ -56,29 +60,7 @@ if st.button('Calcular'):
         sal = sal,
         depth = depth,
         ph = ph,
-        turbid = turbid,valor = realizar_predicao(
-          loaded_model,
-          temp = temp,
-          cond = cond,
-          sal = sal,
-          depth = depth,
-          ph = ph,
-          turbid = turbid,
-          chl = chl,
-          odo_sat = odo_sat,
-          data_hora = data_hora)
-st.json({
-  'temp': temp,
-  'cond': cond,
-  'sal': sal,
-  'depth': depth,
-  'ph': ph,
-  'turbid': turbid,
-  'chl': chl,
-  'odo_sat': odo_sat,
-  'data_hora': data_hora,
-  'result': valor
-})
+        turbid = turbid,
         chl = chl,
         odo_sat = odo_sat,
         data_hora = data_hora)
