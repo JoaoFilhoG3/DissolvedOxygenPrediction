@@ -19,7 +19,8 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
   ano = [data_hora.year][0]
   mes = [data_hora.month][0]
   dia_do_mes = [data_hora.day][0]
-  #minutos = [data_hora.minute][0]
+  hora = [data_hora.hour][0]
+  minutos = [data_hora.minute][0]
   semana = [data_hora.week][0]
   trimestre = [data_hora.quarter][0]
 
