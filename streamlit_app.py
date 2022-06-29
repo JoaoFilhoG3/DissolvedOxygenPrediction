@@ -63,7 +63,7 @@ if st.button('Calcular'):
         odo_sat = odo_sat,
         data_hora = data_hora)
 
-    st.warning('A previsão de oxigênio dissolvido é de: ' + valor)
+    st.warning('A previsão de oxigênio dissolvido é de: ' + str(valor))
 
     #st.json({
         #'temp': temp,
