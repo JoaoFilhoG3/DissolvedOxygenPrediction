@@ -4,19 +4,6 @@ import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
-coluna1, coluna2 = st.columns(2)
-
-coluna1.number_input('Temperatura', step = 0.00001)
-coluna2.number_input('Condutividade')
-coluna1.number_input('Salinidade')
-coluna2.number_input('Profundidade')
-coluna1.number_input('Acidez')
-coluna2.number_input('Turbidez')
-coluna1.number_input('Clorofila')
-coluna2.number_input('Saturação de oxigênio dissolvido')
-coluna1.date_input('Data')
-coluna2.time_input('Hora')
-
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
 #####
@@ -47,85 +34,42 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
   return predictions.head()['Label'][0]
 
-#####
-# Carregando entradas recebidas via método GET
-#####
-params = st.experimental_get_query_params()
 
-#####
-# Verificando se as entradas foram informadas
-#####
-if not ('temp' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'temp' não informado!"
-  })
-elif not ('cond' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'cond' não informado!"
-  })
-elif not ('sal' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'sal' não informado!"
-  })
-elif not ('depth' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'depth' não informado!"
-  })
-elif not ('ph' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'ph' não informado!"
-  })
-elif not ('turbid' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'turbid' não informado!"
-  })
-elif not ('chl' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'chl' não informado!"
-  })
-elif not ('odo_sat' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'odo_sat' não informado!"
-  })
-elif not ('data_hora' in params.keys()):
-  st.json({
-    'error': "Parâmetro 'data_hora' não informado!"
-  })
-else:
-  #####
-  # Executar modelo preditivo caso as entradas tenham sido informadas
-  #####
-  temp = params['temp'][0]
-  cond = params['cond'][0]
-  sal = params['sal'][0]
-  depth = params['depth'][0]
-  ph = params['ph'][0]
-  turbid = params['turbid'][0]
-  chl = params['chl'][0]
-  odo_sat = params['odo_sat'][0]
-  data_hora = params['data_hora'][0]
+coluna1, coluna2 = st.columns(2)
 
-  valor = realizar_predicao(
-            loaded_model,
-            temp = temp,
-            cond = cond,
-            sal = sal,
-            depth = depth,
-            ph = ph,
-            turbid = turbid,
-            chl = chl,
-            odo_sat = odo_sat,
-            data_hora = data_hora)
+temp = coluna1.number_input('Temperatura')
+cond = coluna2.number_input('Condutividade')
+sal = coluna1.number_input('Salinidade')
+depth = coluna2.number_input('Profundidade')
+ph = coluna1.number_input('Acidez')
+turbid = coluna2.number_input('Turbidez')
+chl = coluna1.number_input('Clorofila')
+odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
+data = coluna1.date_input('Data')
+hora = coluna2.time_input('Hora')
+data_hora = data+" "+hora
 
-  st.json({
-    'temp': temp,
-    'cond': cond,
-    'sal': sal,
-    'depth': depth,
-    'ph': ph,
-    'turbid': turbid,
-    'chl': chl,
-    'odo_sat': odo_sat,
-    'data_hora': data_hora,
-    'result': valor
-  })
+
+valor = realizar_predicao(
+          loaded_model,
+          temp = temp,
+          cond = cond,
+          sal = sal,
+          depth = depth,
+          ph = ph,
+          turbid = turbid,
+          chl = chl,
+          odo_sat = odo_sat,
+          data_hora = data_hora)
+st.json({
+  'temp': temp,
+  'cond': cond,
+  'sal': sal,
+  'depth': depth,
+  'ph': ph,
+  'turbid': turbid,
+  'chl': chl,
+  'odo_sat': odo_sat,
+  'data_hora': data_hora,
+  'result': valor
+})
