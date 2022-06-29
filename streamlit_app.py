@@ -48,10 +48,10 @@ odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
 data = coluna1.date_input('Data')
 hora = coluna2.time_input('Hora')
 
-st.button("Oi")
-data_hora = data+" "+hora
-
-
+if st.button('Say hello'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
 
 valor = realizar_predicao(
           loaded_model,
