@@ -43,11 +43,11 @@ from datetime import datetime
 
 params = st.experimental_get_query_params()
 
-if 'oi' in params.keys():
+if not ('oi' in params.keys()):
   st.json({
-    'predicao': params['oi'][0]
+    'error': "Parâmetros não informados!"
   })
 else:
   st.json({
-    'error': "Parâmetros não informados!"
+    'predicao': params['oi'][0]
   })
