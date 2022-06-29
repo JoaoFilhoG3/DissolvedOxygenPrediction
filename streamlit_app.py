@@ -6,7 +6,7 @@ from pycaret.regression import *
 
 coluna1, coluna2 = st.columns(2)
 
-coluna1.number_input('Temperatura')
+coluna1.number_input('Temperatura', step = 0.00001)
 coluna2.number_input('Condutividade')
 coluna1.number_input('Salinidade')
 coluna2.number_input('Profundidade')
