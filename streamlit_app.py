@@ -49,6 +49,7 @@ data = coluna1.date_input('Data')
 hora = coluna2.time_input('Hora')
 
 if st.button('Say hello'):
+    data_hora = data+" "+hora
     valor = realizar_predicao(
         loaded_model,
         temp = temp,
