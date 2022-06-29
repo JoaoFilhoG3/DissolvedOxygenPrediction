@@ -47,7 +47,10 @@ chl = coluna1.number_input('Clorofila')
 odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
 data = coluna1.date_input('Data')
 hora = coluna2.time_input('Hora')
+
+st.button("Oi")
 data_hora = data+" "+hora
+
 
 
 valor = realizar_predicao(
