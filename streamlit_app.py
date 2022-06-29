@@ -53,7 +53,7 @@ data_hora = data.strftime("%Y-%m-%d") + " " + hora.strftime("%H:%M:%S")
 print(data_hora)
 
 if st.button('Calcular'):
-    data_hora = data+" "+hora
+    print(data_hora)
     valor = realizar_predicao(
         loaded_model,
         temp = temp,
