@@ -118,4 +118,4 @@ else:
     'odo_sat': odo_sat,
     'data_hora': data_hora,
     'result': valor
-  }, , expanded=True)
+  })
