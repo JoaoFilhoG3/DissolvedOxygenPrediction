@@ -48,8 +48,9 @@ odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
 data = coluna1.date_input('Data')
 hora = coluna2.time_input('Hora')
 
-print("Aehooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" + data)
-print("Aehooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo" + hora)
+data_hora = data.strftime("%Y-%m-%d") + " " + hora.strftime("%H:%M:%S")
+
+print(data_hora)
 
 if st.button('Calcular'):
     data_hora = data+" "+hora
