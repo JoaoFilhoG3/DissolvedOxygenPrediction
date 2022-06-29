@@ -4,6 +4,8 @@ import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
+st.doc
+
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
 #####
@@ -115,4 +117,4 @@ else:
     'odo_sat': odo_sat,
     'data_hora': data_hora,
     'result': valor
-  })
+  },*, expanded=True)
