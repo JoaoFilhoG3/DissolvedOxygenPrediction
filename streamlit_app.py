@@ -14,8 +14,8 @@ coluna1.number_input('Acidez')
 coluna2.number_input('Turbidez')
 coluna1.number_input('Clorofila')
 coluna2.number_input('Saturação de oxigênio dissolvido')
-coluna1.number_input('Data')
-coluna2.number_input('Hora')
+coluna1.date_input('Data')
+coluna2.hour_input('Hora')
 
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
