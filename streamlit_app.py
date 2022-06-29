@@ -4,8 +4,17 @@ import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
-st.text('Temperatura')
-st.text_input('Digite a temperatura.')
+
+st.text_input('Temperatura')
+st.text_input('Condutividade')
+st.text_input('Salinidade')
+st.text_input('Profundidade')
+st.text_input('Acidez')
+st.text_input('Turbidez')
+st.text_input('Clorofila')
+st.text_input('Saturação de oxigênio dissolvido')
+st.text_input('Data')
+st.text_input('Hora')
 
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
