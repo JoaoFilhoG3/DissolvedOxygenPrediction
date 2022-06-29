@@ -46,4 +46,8 @@ params = st.experimental_get_query_params()
 if 'oi' in params.keys():
   st.json({
     'predicao': params['oi'][0]
-  })  
+  })
+else:
+  st.json({
+    'error': "Parâmetros não informados!"
+  })
