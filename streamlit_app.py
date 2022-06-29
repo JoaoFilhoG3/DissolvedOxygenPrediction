@@ -2,33 +2,45 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from datetime import datetime
-#from pycaret.regression import *
+from pycaret.regression import *
 
-#loaded_model = load_model('my_model')
+#####
+# Carregando modelo preditivo previamente salvo em arquivo
+#####
+loaded_model = load_model('my_model')
 
-#def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo_sat, data_hora):
-  #data_hora = pd.to_datetime(data_hora)
-#
-  #dia_da_semana = [datetime.weekday(data_hora)][0]
-  #ano = [data_hora.year][0]
-  #mes = [data_hora.month][0]
-  #dia_do_mes = [data_hora.day][0]
-  ##minutos = [data_hora.minute][0]
-  #semana = [data_hora.week][0]
-  #trimestre = [data_hora.quarter][0]
-#
-  #col_names = ['temp_c','cond_us','sal_ppt','depth_m','pH ','turbid_ntu','chl_ug/l','odo_sat_%','dia_da_semana','ano','mes','dia_do_mes','hora','minutos','semana','trimestre']
-  #sample_values = [temp, cond, sal, depth, ph, turbid, chl, odo_sat, dia_da_semana, ano, mes, dia_do_mes, hora, minutos, semana, trimestre]
-#
-  #d = dict(zip(col_names, sample_values))
-  #unseen_data = pd.DataFrame([d])
-#
-  #predictions = predict_model(loaded_model, data=unseen_data)
-#
-  #return predictions.head()['Label'][0]
+#####
+# Função responsável por submeter ao modelo preditivo os valores recebidos por parâmetros
+#####
+def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo_sat, data_hora):
+  data_hora = pd.to_datetime(data_hora)
 
+  dia_da_semana = [datetime.weekday(data_hora)][0]
+  ano = [data_hora.year][0]
+  mes = [data_hora.month][0]
+  dia_do_mes = [data_hora.day][0]
+  #minutos = [data_hora.minute][0]
+  semana = [data_hora.week][0]
+  trimestre = [data_hora.quarter][0]
+
+  col_names = ['temp_c','cond_us','sal_ppt','depth_m','pH ','turbid_ntu','chl_ug/l','odo_sat_%','dia_da_semana','ano','mes','dia_do_mes','hora','minutos','semana','trimestre']
+  sample_values = [temp, cond, sal, depth, ph, turbid, chl, odo_sat, dia_da_semana, ano, mes, dia_do_mes, hora, minutos, semana, trimestre]
+
+  d = dict(zip(col_names, sample_values))
+  unseen_data = pd.DataFrame([d])
+
+  predictions = predict_model(loaded_model, data=unseen_data)
+
+  return predictions.head()['Label'][0]
+
+#####
+# Carregando entradas recebidas via método GET
+#####
 params = st.experimental_get_query_params()
 
+#####
+# Verificando se as entradas foram informadas
+#####
 if not ('temp' in params.keys()):
   st.json({
     'error': "Parâmetro 'temp' não informado!"
@@ -66,6 +78,9 @@ elif not ('data_hora' in params.keys()):
     'error': "Parâmetro 'data_hora' não informado!"
   })
 else:
+  #####
+  # Executar modelo preditivo caso as entradas tenham sido informadas
+  #####
   temp = params['temp'][0]
   cond = params['cond'][0]
   sal = params['sal'][0]
