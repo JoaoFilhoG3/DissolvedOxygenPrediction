@@ -37,23 +37,20 @@ def realizar_predicao(loaded_model, temp, cond, sal, depth, ph, turbid, chl, odo
 
 coluna1, coluna2 = st.columns(2)
 
-temp = coluna1.number_input('Temperatura')
-cond = coluna2.number_input('Condutividade')
-sal = coluna1.number_input('Salinidade')
-depth = coluna2.number_input('Profundidade')
-ph = coluna1.number_input('Acidez')
-turbid = coluna2.number_input('Turbidez')
-chl = coluna1.number_input('Clorofila')
-odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido')
-data = coluna1.date_input('Data')
-hora = coluna2.time_input('Hora')
+temp = coluna1.number_input('Temperatura', value= 34.49)
+cond = coluna2.number_input('Condutividade', value= 84.0)
+sal = coluna1.number_input('Salinidade', value= 0.04)
+depth = coluna2.number_input('Profundidade', value= 0.404)
+ph = coluna1.number_input('Acidez', value= 0.0)
+turbid = coluna2.number_input('Turbidez', value= -28.6)
+chl = coluna1.number_input('Clorofila', value= -0.57)
+odo_sat = coluna2.number_input('Saturação de oxigênio dissolvido', value= 100.7)
+data = coluna1.date_input('Data', value= "2020-11-21")
+hora = coluna2.time_input('Hora', value= "12:21:00")
 
 data_hora = data.strftime("%Y-%m-%d") + " " + hora.strftime("%H:%M:%S")
 
-print(data_hora)
-
 if st.button('Calcular'):
-    print(data_hora)
     valor = realizar_predicao(
         loaded_model,
         temp = temp,
