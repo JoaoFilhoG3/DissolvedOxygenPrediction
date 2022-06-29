@@ -62,6 +62,9 @@ if st.button('Calcular'):
         chl = chl,
         odo_sat = odo_sat,
         data_hora = data_hora)
+
+    st.warning('This is a warning')
+
     st.json({
         'temp': temp,
         'cond': cond,
