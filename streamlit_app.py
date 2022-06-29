@@ -6,16 +6,16 @@ from pycaret.regression import *
 
 coluna1, coluna2 = st.columns(2)
 
-coluna1.text_input('Temperatura')
-coluna2.text_input('Condutividade')
-coluna1.text_input('Salinidade')
-coluna2.text_input('Profundidade')
-coluna1.text_input('Acidez')
-coluna2.text_input('Turbidez')
-coluna1.text_input('Clorofila')
-coluna2.text_input('Saturação de oxigênio dissolvido')
-coluna1.text_input('Data')
-coluna2.text_input('Hora')
+coluna1.number_input('Temperatura')
+coluna2.number_input('Condutividade')
+coluna1.number_input('Salinidade')
+coluna2.number_input('Profundidade')
+coluna1.number_input('Acidez')
+coluna2.number_input('Turbidez')
+coluna1.number_input('Clorofila')
+coluna2.number_input('Saturação de oxigênio dissolvido')
+coluna1.number_input('Data')
+coluna2.number_input('Hora')
 
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
