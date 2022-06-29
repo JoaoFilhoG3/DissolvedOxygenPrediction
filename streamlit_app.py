@@ -4,7 +4,8 @@ import numpy as np
 from datetime import datetime
 from pycaret.regression import *
 
-st.doc
+st.text('Temperatura')
+st.text_input('Digite a temperatura.')
 
 #####
 # Carregando modelo preditivo previamente salvo em arquivo
@@ -117,4 +118,4 @@ else:
     'odo_sat': odo_sat,
     'data_hora': data_hora,
     'result': valor
-  },*, expanded=True)
+  }, , expanded=True)
