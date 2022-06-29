@@ -49,30 +49,27 @@ data = coluna1.date_input('Data')
 hora = coluna2.time_input('Hora')
 
 if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
+    valor = realizar_predicao(
+        loaded_model,
+        temp = temp,
+        cond = cond,
+        sal = sal,
+        depth = depth,
+        ph = ph,
+        turbid = turbid,
+        chl = chl,
+        odo_sat = odo_sat,
+        data_hora = data_hora)
+    st.json({
+        'temp': temp,
+        'cond': cond,
+        'sal': sal,
+        'depth': depth,
+        'ph': ph,
+        'turbid': turbid,
+        'chl': chl,
+        'odo_sat': odo_sat,
+        'data_hora': data_hora,
+        'result': valor
+    })
 
-valor = realizar_predicao(
-          loaded_model,
-          temp = temp,
-          cond = cond,
-          sal = sal,
-          depth = depth,
-          ph = ph,
-          turbid = turbid,
-          chl = chl,
-          odo_sat = odo_sat,
-          data_hora = data_hora)
-st.json({
-  'temp': temp,
-  'cond': cond,
-  'sal': sal,
-  'depth': depth,
-  'ph': ph,
-  'turbid': turbid,
-  'chl': chl,
-  'odo_sat': odo_sat,
-  'data_hora': data_hora,
-  'result': valor
-})
