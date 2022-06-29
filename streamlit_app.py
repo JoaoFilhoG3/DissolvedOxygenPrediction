@@ -41,9 +41,11 @@ from datetime import datetime
             #odo_sat = 100.7,
             #data_hora = "2020-11-21 12:21:00")
 
+params = st.experimental_get_query_params()
+
 st.json({
-    #'predicao': float(valor)
+    'predicao': params['oi']
 })
 
-params = st.experimental_get_query_params()
+
 print(params) 
